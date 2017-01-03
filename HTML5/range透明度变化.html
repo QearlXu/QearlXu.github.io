@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+//			function $(id){
+//				document.getElementById(id);
+//			}
+			function initial(){
+				var txtRange=document.getElementById('txtRange');
+				var container=document.getElementById('container');
+				txtRange.addEventListener('change',changeOpacity,false);
+			}
+			
+			function changeOpacity(){
+				container.style.opacity=txtRange.value/100;
+				container.style.filter='alpha('+txtRange.value+')';
+			}
+			window.addEventListener('load',initial,false);
+		</script>
+	</head>
+	<body>
+		<!--通过range标签实现一个div的透明度的选择-->
+		0<input type="range" min="0" max="100" id="txtRange"/>100
+		<div id="container"></div>
+	</body>
+</html>
